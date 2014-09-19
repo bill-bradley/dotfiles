@@ -1,6 +1,9 @@
 #!/bin/bash
 ############################
-# .make.sh
+# to run:
+# chmod +x makesymlinks.sh
+# ./makesymlinks.sh
+#
 # This script creates symlinks from the home directory to any desired dotfiles in ~/dotfiles
 ############################
 
@@ -40,6 +43,8 @@ if [ -f /bin/zsh -o -f /usr/bin/zsh ]; then
     # Set the default shell to zsh if it isn't currently set to zsh
     if [[ ! $(echo $SHELL) == $(which zsh) ]]; then
         chsh -s $(which zsh)
+				# in case this doesn't work, just modify the user with: (due to issue not working on amazon ec2 instance
+				# sudo vi /etc/passwd
     fi
 else
     # If zsh isn't installed, get the platform of the current machine
