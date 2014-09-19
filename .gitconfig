@@ -1,0 +1,53 @@
+[push]
+	default = simple
+[user]
+	name = Bill Bradley
+	email = bill@bill-bradley.com
+[core]
+	autocrlf = false
+	safecrlf = false
+	excludesfile = /Users/bbradley/.gitignore_global
+[push]
+	default = simple
+[alias]
+	de = "!f() { git add -A && git commit -m \"$1\" && git pull --rebase && git push || git mergetool --no-prompt; }; f"
+	cont = !git add -A && git rebase --continue && git pull --rebase && git push || git mergetool --no-prompt
+  glog = "!git log --graph --pretty=format:'%Cred%h%Creset %C(cyan)%an%Creset -%C(blue)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
+	pr = pull --rebase
+	co = checkout
+	st = status -s -b -u
+[color]
+  ui = auto
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+[mergetool]
+	keepBackup = true
+	prompt = false
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[diff]
+	tool = Kaleidoscope
+[difftool]
+	prompt = false
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+[merge]
+	tool = Kaleidoscope
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
