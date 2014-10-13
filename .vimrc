@@ -27,12 +27,11 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'mhinz/vim-signify'
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'mileszs/ack.vim'
-NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'tpope/vim-sensible'
 NeoBundle 'bill-bradley/vim-coldfusion'
-
+NeoBundle 'vim-ruby/vim-ruby'
 
 call neobundle#end()
 
