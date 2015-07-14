@@ -21,16 +21,16 @@ NeoBundle 'bling/vim-bufferline'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'ervandew/supertab'
-NeoBundle 'Valloric/YouCompleteMe'
-NeoBundle 'SirVer/ultisnips'
+"NeoBundle 'Valloric/YouCompleteMe'
+"NeoBundle 'SirVer/ultisnips'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'mhinz/vim-signify'
-NeoBundle 'Raimondi/delimitMate'
+"NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'mileszs/ack.vim'
-NeoBundle 'tpope/vim-surround'
+"NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'tpope/vim-sensible'
-NeoBundle 'bill-bradley/vim-coldfusion'
+"NeoBundle 'bill-bradley/vim-coldfusion'
 NeoBundle 'vim-ruby/vim-ruby'
 
 call neobundle#end()
@@ -59,7 +59,7 @@ set cmdheight=2
 set notimeout ttimeout ttimeoutlen=200
 set pastetoggle=<F11>
 set shiftwidth=2
-set noexpandtab
+set expandtab
 set tabstop=2
 set scrolloff=5
 set showmatch
@@ -77,7 +77,6 @@ set t_Co=256
 " airline settings
 let g:airline_section_c = ''
 let g:airline_theme             = 'powerlineish'
-let g:airline_enable_branch     = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#buffer_nr_show = 1
