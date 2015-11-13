@@ -19,7 +19,7 @@ NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'bling/vim-bufferline'
 NeoBundle 'bling/vim-airline'
-NeoBundle 'scrooloose/syntastic'
+"NeoBundle 'scrooloose/syntastic'
 NeoBundle 'ervandew/supertab'
 "NeoBundle 'Valloric/YouCompleteMe'
 "NeoBundle 'SirVer/ultisnips'
@@ -31,7 +31,7 @@ NeoBundle 'mileszs/ack.vim'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'tpope/vim-sensible'
 "NeoBundle 'bill-bradley/vim-coldfusion'
-NeoBundle 'vim-ruby/vim-ruby'
+"NeoBundle 'vim-ruby/vim-ruby'
 
 call neobundle#end()
 
@@ -42,7 +42,7 @@ filetype plugin indent on
 " this will conveniently prompt you to install them.
 NeoBundleCheck
 
-let mapleader=","
+let mapleader="\<Space>"
 set backspace=indent,eol,start
 set hidden
 set wildmenu
@@ -53,13 +53,12 @@ set smartcase
 set autoindent
 set nostartofline
 set confirm
-set visualbell
 set mouse=a
 set cmdheight=2
 set notimeout ttimeout ttimeoutlen=200
 set pastetoggle=<F11>
 set shiftwidth=2
-set expandtab
+set noexpandtab
 set tabstop=2
 set scrolloff=5
 set showmatch
@@ -73,10 +72,13 @@ set hlsearch
 set number
 set relativenumber
 set t_Co=256
+" override cls to be vb for PestPac
+au BufNewFile,BufRead *.cls set filetype=vb
 
 " airline settings
 let g:airline_section_c = ''
 let g:airline_theme             = 'powerlineish'
+let g:airline_enable_branch     = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#buffer_nr_show = 1
@@ -116,8 +118,11 @@ nmap <leader>l :bnext<CR>
 nmap <leader>h :bprevious<CR>
 
 " Close the current buffer and move to the previous one
-nmap <leader>bq :bp <BAR> bd #<CR>
+"nmap <leader>bq :bp <BAR> bd #<CR>
 
+" Map y and yy for yanking selected and current line
+noremap <leader>y "*y
+noremap <leader>yy "*Y
 "delmitmate settings
 au FileType cf let b:delimitMate_quotes = "\" # '"
 
@@ -129,3 +134,4 @@ au FileType cf let b:delimitMate_quotes = "\" # '"
 " CtrlP settings
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
 let g:ctrlp_open_multiple_files = 'i'
+ let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:50,results:50'
