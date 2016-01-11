@@ -2,7 +2,7 @@
 	default = simple
 [user]
 	name = Bill Bradley
-	email = bbradley@workwave.com
+	email = bill@bill-bradley.com
 [core]
 	autocrlf = input
 	safecrlf = false
