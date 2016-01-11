@@ -5,6 +5,7 @@ if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
+set visualbell
 
 " Required:
 call neobundle#begin(expand('~/.vim/bundle/'))
@@ -74,14 +75,17 @@ set relativenumber
 set t_Co=256
 " override cls to be vb for PestPac
 au BufNewFile,BufRead *.cls set filetype=vb
+au BufNewFile,BufRead WebRoot/* set path+=./WebRoot/
+au BufNewFile,BufRead WebRootX/* set path+=./WebRootX/
 
 " airline settings
 let g:airline_section_c = ''
 let g:airline_theme             = 'powerlineish'
-let g:airline_enable_branch     = 1
+" let g:airline_enable_branch     = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#branch#enabled = 1
 
 set guifont=Source\ Code\ Pro\ for\ Powerline:h12
 set guioptions+=c
@@ -130,8 +134,20 @@ au FileType cf let b:delimitMate_quotes = "\" # '"
 "au FileType cf setfiletype html.cf.js.css
 
 "let g:syntastic_debug = 31
-
+ 
 " CtrlP settings
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
 let g:ctrlp_open_multiple_files = 'i'
  let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:50,results:50'
+let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+
+" upon hitting escape to change modes,
+" send successive move-left and move-right
+" commands to immediately redraw the cursor
+inoremap <special> <Esc> <Esc>hl
+
+let g:ackprg = 'ag --vimgrep'
+
+" don't blink the cursor
+set guicursor+=i:blinkwait0

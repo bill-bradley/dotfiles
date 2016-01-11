@@ -2,11 +2,12 @@
 	default = simple
 [user]
 	name = Bill Bradley
-	email = bill@bill-bradley.com
+	email = bbradley@workwave.com
 [core]
-	autocrlf = false
+	autocrlf = input
 	safecrlf = false
 	excludesfile = /Users/bbradley/.gitignore_global
+	editor = vim
 [push]
 	default = simple
 [alias]
@@ -51,3 +52,7 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
